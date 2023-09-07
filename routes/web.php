@@ -27,10 +27,10 @@ Route::middleware(['auth'])->group(function () {
 
         Route::delete('/users/{user}', 'AdminUserController@destroy');
     });
-    
+
     Route::middleware(['role:FINANCE'])->group(function () {
         Route::get('/reimbursements/approved', 'ReimbursementController@getApprovedReimbursements');
-    })
+    });
 
     Route::middleware(['role:DIREKTUR,FINANCE'])->group(function () {
         Route::post('/reimbursement/{reimbursement}/approve', 'ReimbursementController@approve');
